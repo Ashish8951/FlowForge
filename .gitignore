@@ -1,0 +1,62 @@
+# ── Java / Maven ──
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+*.jar
+*.war
+*.class
+
+# ── Spring Boot ──
+**/application.properties
+**/application.yml
+!**/application.properties.example
+!**/application.yml.example
+
+# ── IntelliJ IDEA ──
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# ── STS (Spring Tool Suite) ──
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# ── NetBeans ──
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# ── VS Code ──
+.vscode/
+
+# ── Node / React (frontend) ──
+node_modules/
+dist/
+.next/
+.nuxt/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ── Environment ──
+.env
+.env.local
+.env.production
+
+# ── OS ──
+.DS_Store
+Thumbs.db
