@@ -1,4 +1,4 @@
-package com.flowforge.auth_service.exception;
+package com.flowforge.workflow_service.exception;
 
 public class InvalidCredentialsException extends RuntimeException{
     public  InvalidCredentialsException (String message) {

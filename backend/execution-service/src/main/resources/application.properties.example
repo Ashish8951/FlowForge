@@ -1,0 +1,45 @@
+spring.application.name=execution-service
+
+# ── Database ──
+spring.datasource.url=jdbc:postgresql://localhost:5432/flowforge_execution
+spring.datasource.username=your_db_username
+spring.datasource.password=your_db_password
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+
+# ── Server ──
+server.port=8083
+
+# ── JWT ──
+# Secret must be identical across all services
+jwt.secret=your_jwt_secret_key_at_least_32_chars
+
+# ── Kafka (Consumer + Producer) ──
+spring.kafka.bootstrap-servers=localhost:9092
+spring.kafka.consumer.group-id=execution-service-group
+spring.kafka.consumer.auto-offset-reset=earliest
+spring.kafka.consumer.key-deserializer=org.apache.kafka.common.serialization.StringDeserializer
+spring.kafka.consumer.value-deserializer=org.apache.kafka.common.serialization.StringDeserializer
+spring.kafka.producer.key-serializer=org.apache.kafka.common.serialization.StringSerializer
+spring.kafka.producer.value-serializer=org.apache.kafka.common.serialization.StringSerializer
+
+# ── Redis ──
+spring.data.redis.host=localhost
+spring.data.redis.port=6379
+
+# ── Internal Service URLs ──
+workflow.service.url=http://localhost:8082
+
+# ── Internal service-to-service key ──
+# Must match internal.service.key in workflow-service
+internal.service.key=your_internal_service_key_here
+
+# ── Email (used by EMAIL action steps) ──
+# Leave commented out if you don't use EMAIL action steps — service starts fine without it
+# spring.mail.host=smtp.gmail.com
+# spring.mail.port=587
+# spring.mail.username=your_email@gmail.com
+# spring.mail.password=your_app_password
+# spring.mail.properties.mail.smtp.auth=true
+# spring.mail.properties.mail.smtp.starttls.enable=true

@@ -8,8 +8,6 @@ import com.flowforge.auth_service.model.entity.User;
 import com.flowforge.auth_service.service.interfaces.AuthService;
 import com.flowforge.auth_service.repository.UserRepository;
 import com.flowforge.auth_service.service.interfaces.TokenService;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
