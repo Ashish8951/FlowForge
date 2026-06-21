@@ -1,13 +1,17 @@
 package com.flowforge.auth_service.exception;
 
 import com.flowforge.auth_service.model.dto.SuccessResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-@RestControllerAdvice  // intercepts ALL exceptions in the app
+@RestControllerAdvice
 public class GlobalExceptionHandler {
+
+    private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     @ExceptionHandler(ResourceAlreadyExistsException.class)
     @ResponseStatus(HttpStatus.CONFLICT)  // 409
@@ -38,8 +42,9 @@ public class GlobalExceptionHandler {
 
 
     @ExceptionHandler(Exception.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)  // 500
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public SuccessResponse handleGenericException(Exception ex) {
+        log.error("Unhandled exception [{}]: {}", ex.getClass().getSimpleName(), ex.getMessage(), ex);
         return SuccessResponse.builder()
                 .status(false)
                 .message("Something went wrong. Please try again.")
